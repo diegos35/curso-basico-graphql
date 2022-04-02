@@ -1,14 +1,21 @@
 //'use strict'
 
 const { graphql, buildSchema } = require('graphql')
+const express = require('express') 
+const { graphqlHTTP } = require('express-graphql')//Middleware de graphql
 
-// definiendo el esquema
+const app = express() //API DE EXPRESS
+const port = process.env.port || 3000    //Definir puerto
+
+
+// Defincion del esquema
 const schema = buildSchema(`
   type Query {
     hello: String
     saludo: String
   }
 `)
+
 
 //configurar los resolvers
 const resolvers = {
@@ -18,11 +25,13 @@ const resolvers = {
 	saludo : () => 'Hola a todos'
 };
 
-// Ejecutar el query hello
-graphql({
+app.use('/api/', graphqlHTTP({
     schema: schema,
-    source: '{hello , saludo }',
-    rootValue : resolvers})
-.then((data) => {
-  console.log(data)
+    rootValue: resolvers, //lo que ejecuta objecto que esta en resolvers
+    graphiql: true //entorno de dev
+}))
+
+app.listen(port, ()=>{
+    console.log(`Server is listening at http://localhost:${port}/api`)
 })
+
