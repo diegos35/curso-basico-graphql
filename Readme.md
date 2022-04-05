@@ -23,3 +23,15 @@ getCourses{
   description
 }
 
+*-------Mutation---------------* 
+mutation{
+  createCourse(input: {
+    title: "Curso de ejemplo 5"
+    descripcion: "Descripcion 5",
+   
+  }){ //lo que retorna al guardar
+    _id
+    title
+    descripcion
+  }
+}
