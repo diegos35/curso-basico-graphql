@@ -10,6 +10,8 @@ const resolvers = require('./lib/resolvers')
 const app = express() //API DE EXPRESS
 const port = process.env.port || 3000    //Definir puerto
 
+const initDB = require('./lib/db');
+
 
 // Defincion del esquema
 const typeDefs = readFileSync(
@@ -25,7 +27,11 @@ app.use('/api/', graphqlHTTP({
     graphiql: true //entorno de dev
 }))
 
+
+/**Apliacion de exprees Up */
 app.listen(port, ()=>{
     console.log(`Server is listening at http://localhost:${port}/api`)
 })
 
+/* Conexion a DB mongo compas */
+initDB();
