@@ -20,5 +20,6 @@ getCourse(id: "1"){
 ## devuelve todos los cursos 
 getCourses{
   title
+  description
 }
 
