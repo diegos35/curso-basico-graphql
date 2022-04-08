@@ -1,0 +1,39 @@
+[{
+  "_id": "5349b4ddd2781d08c09890f4",
+  "title": "Mi titilo 3",
+  "teacher": "Mi profesor 3",
+  "descripcion": "Una descripcion 3",
+  "topico": "programacion 3"
+},{
+  "_id": {
+    "$oid": "624bcb17295c2783be1c9b6b"
+  },
+  "title": "Mit tutulo 3",
+  "teacher": "Mi profesor 3",
+  "descripcion": "una descr 3",
+  "topico": "programa 3"
+},{
+  "_id": {
+    "$oid": "624bcbb3295c2783be1c9b6d"
+  },
+  "title": "Mit tutulo 4",
+  "teacher": "Mi profesor 5",
+  "descripcion": "una descr 5",
+  "topico": "programa 5"
+},{
+  "_id": {
+    "$oid": "624c997a34303271b59ca6b9"
+  },
+  "teacher": "",
+  "topic": "",
+  "title": "Curso de ejemplo 5",
+  "descripcion": "Descripcion 5"
+},{
+  "_id": {
+    "$oid": "624c9a059a4dbef3a3aa628f"
+  },
+  "teacher": "",
+  "topic": "",
+  "title": "Curso de ejemplo 5",
+  "descripcion": "Descripcion 5"
+}]
