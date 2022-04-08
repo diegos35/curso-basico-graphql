@@ -30,8 +30,6 @@ getCourse(id: "624bd7076e42930498957c51"){
   title
 }
 
-
-
 mutation{
   createCourse(input: {
     title: "Curso de ejemplo 5"
@@ -43,3 +41,14 @@ mutation{
     descripcion
   }
 }
+
+
+/*------------Repaso-Creando tipo estudiante-------------*/
+{
+  getCourses{
+    _id
+    title
+    descripcion
+  }
+}
+
