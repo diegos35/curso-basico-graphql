@@ -59,11 +59,18 @@ type Mutation {
 
     "Edit Course, return course"
     editCourse(_id: ID! , input: CourseEditInput): Course
-    
+
+     "Delete Course"
+    deleteCourse(_id: ID!): String
+
     "Create student"
     createStudent(input: StudentInput!): Student
 
     "Edit  student"
     editStudent(_id: ID! ,input: StudentEdirInput!): Student
+
+    "Delete Student"
+    deleteStudent(_id: ID!): String
+
 
 }
