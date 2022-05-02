@@ -1,5 +1,21 @@
 ***-------para corre poroyecto: npm run dev
 
+Resolvers de tipos: traer la relacion 
+query studentsQuery{
+  getCourses{
+    _id
+    title
+    people{
+      _id
+      name
+      email
+    }
+  }
+}
+
+
+
+
 //JSON COLLECTION course.json
 
 Actualmente tu defines varias APIs tipo REST para traer cierta información. Si quieres añadir nuevos campos al servicio REST que tendrías que hacer? Modificar toda la API para añadir ese campo. GraphQL lo que entraría a hacer es encargarse de llamar esas APIs y tu defines en la query de GraphQL si quieres obtener un campo o quitarlo de tu consulta, así, no tendrías que estar modificando APIs en todo momento si quieres construir una respuesta con unos campos específicos.
