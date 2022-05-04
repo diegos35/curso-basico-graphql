@@ -6,6 +6,7 @@ const { graphqlHTTP } = require('express-graphql')//Middleware de graphql
 const { readFileSync } = require('fs')
 const { join } = require('path')
 const resolvers = require('./lib/resolvers')
+const cors = require('cors')
 
 const app = express() //API DE EXPRESS
 const port = process.env.port || 3000    //Definir puerto
@@ -19,12 +20,18 @@ const typeDefs = readFileSync(
   'utf-8' //encode
   )
 const schema = makeExecutableSchema({typeDefs, resolvers})
+//Modo produccion
+const isDev = process.env.NODE_ENV !== 'production';
+console.log(isDev)
 
+
+//Middleware de CORS
+app.use(cors())
 
 app.use('/api/', graphqlHTTP({
     schema: schema,
     rootValue: resolvers, //lo que ejecuta objecto que esta en resolvers
-    graphiql: true //entorno de dev
+    graphiql: isDev //entorno de dev
 }))
 
 
