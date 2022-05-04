@@ -222,3 +222,37 @@ query getPeopleData($monitor: Boolean!, $avatar: Boolean!){
   }
   
 }
+
+********Unions**************
+$ show dbs mostrar bases de datos
+$ db mirar en que base de datos estoy 
+$ use nameDB
+$ show collections
+$ db.usuarios.insertOne({
+    name: "Diego",
+    age: 25,
+    city: Neiva
+})
+
+$ db.usuarios
+
+]*****CREACION DE UN INDECE ***
+db.courses.createIndex({"$**":"text"})
+
+{
+  searchItems(keyword: "ejemplo"){
+    __typename
+    ... on Course {
+      title
+      descripcion
+    }
+    ... on Monitor {
+      name
+      phone
+    }
+    ... on Student{
+      name
+      email
+    }
+  }
+}
