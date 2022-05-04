@@ -131,3 +131,32 @@ mutation addPersonMutations{
     _id
   }
 }
+*-----------Variables----------------------*
+mutation AddPersonCourse2 ($course: ID!, $person: ID!){
+	addPeople(courseID: $course, personID: $person){
+    _id
+    title
+  }
+}
+//Query variables
+{
+  "course": "624bcb17295c2783be1c9b6b",
+  "person": "6250c00c2dcb905d842c052f"
+}
+
+//2 example 
+query GetCourse($cour: ID!){
+  getCourse(id: $cour){
+    _id
+    title
+    people{
+      _id
+      name
+    }
+  }
+}
+//Query variables
+{
+  "cour": "624bcb17295c2783be1c9b6b"
+}
+
