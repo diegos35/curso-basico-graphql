@@ -16,7 +16,7 @@ type Course {
     title: String!
     teacher: String
     descripcion: String!
-    topic: String
+    topic: String @deprecated ##campo no disponible
     people: [Person]
     level: Level
 }

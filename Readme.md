@@ -191,3 +191,32 @@ mutation CreatenewCoruse($createinput: CourseInput!){
   }
   
 }
+
+*--------------------DIRECTIVA IF--------------*
+query getPeopleData($monitor: Boolean!){
+    getPeople{
+    _id
+    name
+    email
+    ... on Monitor  @include(if: $monitor){
+      phone
+    }
+  }
+  
+}
+
+//other example
+query getPeopleData($monitor: Boolean!, $avatar: Boolean!){
+    getPeople{
+    _id
+    name
+    ... on Monitor  @include(if: $monitor){
+      phone
+    }
+     ... on Student  @include(if: $avatar){
+      avatar
+      email
+    }
+  }
+  
+}
