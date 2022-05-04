@@ -69,3 +69,65 @@ mutation{
   }
 }
 
+*----------------alias----------------------*
+{
+  AllCourses: getCourses{
+    _id
+    title
+    descripcion
+  }
+  
+  getCourse1: getCourse(id:"624c9a059a4dbef3a3aa628f"){
+    _id
+    title
+    descripcion
+  }
+  
+   getCourse2: getCourse(id:"625056b14ca7a7bfa34b8b95"){
+        title
+    descripcion
+		topic
+  }
+}
+
+*--------------fragments------------------------*
+Estructura de un fragment:
+fragment x on Schema {
+// Body of Schema
+}
+
+
+
+
+multiple consultas
+query studentsQuery{
+  getCourses{
+    _id
+    title
+    people{
+      _id
+      name
+      email
+    }
+  }
+}
+
+mutation addCourse{
+  createCourse(input: {
+    title: "Curso de ejemplo 8"
+    descripcion: "Descripcion 8",
+   
+  }){
+    _id
+    title
+    descripcion
+  }
+}
+
+
+mutation addPersonMutations{
+	addPeople(courseID:"624bcb17295c2783be1c9b6b"
+  ,personID:"6250c03d94c32c32e8f6b738"){
+    _id
+  }
+}
