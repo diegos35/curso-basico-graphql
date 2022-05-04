@@ -5,21 +5,38 @@ enum Level {
     avanzado
 }
 
+interface Person{
+     _id: ID!
+    name: String! 
+    email: String!
+}
+
 type Course {
     _id: ID!
     title: String!
     teacher: String
     descripcion: String!
     topic: String
-    people: [Student]
+    people: [Person]
     level: Level
 }
 
 
-type Student {
+
+type Monitor  implements Person{
     _id: ID!
     name: String! 
     email: String!
+    phone: String!
+  
+}
+
+
+type Student implements Person {
+    _id: ID!
+    name: String! 
+    email: String!
+    avatar: String
 }
 
 
@@ -30,22 +47,24 @@ type Query {
     "Devuelve un curso " 
     getCourse(id: ID!): Course
 
-    "Devuelve todos los Estudiantes"
-    getStudents: [Student]
+    "Devuelve un [] de Person"
+    getPeople: [Person] 
     
     "Devuelve un Estudiante " 
-    getStudent(id: ID!): Student
+    getPerson(id: ID!): Person
 }
 
 
-input StudentInput {
+input PersonInput {
     name: String! 
     email: String!
 }
 
-input StudentEdirInput {
+input PersonInput {
     name: String 
     email: String
+    phone: String
+    avatar: String
 }
 
 input CourseInput {
@@ -73,11 +92,11 @@ type Mutation {
      "Delete Course"
     deleteCourse(_id: ID!): String
 
-    "Create student"
-    createStudent(input: StudentInput!): Student
+    "Create a person"
+    createPerson(input: PersonInput!): Person
 
-    "Edit  student"
-    editStudent(_id: ID! ,input: StudentEdirInput!): Student
+    "Edit  a person"
+    editPerson(_id: ID! ,input: PersonInput!): Person
 
     "Delete Student"
     deleteStudent(_id: ID!): String

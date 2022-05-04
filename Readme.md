@@ -178,3 +178,16 @@ mutation CreatenewCoruse($createinput: CourseInput!){
    	"level": "intermedio"
   }
 }
+
+***** ------------Interfaces-----------****
+{
+  getPeople{
+    _id
+    name
+    email
+    ... on Monitor {
+      phone
+    }
+  }
+  
+}
