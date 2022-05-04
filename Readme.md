@@ -193,6 +193,8 @@ mutation CreatenewCoruse($createinput: CourseInput!){
 }
 
 *--------------------DIRECTIVA IF--------------*
+@skip(if: Boolean)Omita este campo si el argumento es true.
+
 query getPeopleData($monitor: Boolean!){
     getPeople{
     _id
