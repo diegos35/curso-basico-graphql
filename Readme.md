@@ -160,3 +160,21 @@ query GetCourse($cour: ID!){
   "cour": "624bcb17295c2783be1c9b6b"
 }
 
+
+*-------------Enums---------------------*
+mutation CreatenewCoruse($createinput: CourseInput!){
+  createCourse(input: $createinput){
+    _id
+    title
+  }
+}
+//Query variables
+{
+  "createinput": {
+    "title": "Mi titulo nuevo",
+    "teacher": "Profe",
+    "descripcion": "Curso de ejemplo",
+    "topic": "programacion grahpql",
+   	"level": "intermedio"
+  }
+}
